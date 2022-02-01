@@ -1,0 +1,35 @@
+<html>
+    <head>
+        <style>
+            body {
+                background-image: url('index.jpg');
+                font-family: 'Courier New', Courier, monospace;
+                text-align: center;
+                font-size: 3vw;
+                font-weight: bolder;
+                padding: 33vh;
+                color: aliceblue;
+            }
+
+            .jokedisplay {
+                background: black;
+                border-radius: 10px;
+                margin: 3vh 3vw;
+            }
+        </style>
+        <title>
+            The Dank Page
+        </title>
+    </head>
+    <body>
+        <div class = "jokedisplay"><q id = "joke"></q></div>
+    </body>
+    <script>
+        async function getJoke(){
+            var response =  await fetch("https://v2.jokeapi.dev/joke/Dark?type=single");
+            var data =  await response.json();
+            document.getElementById("joke").textContent = data.joke;
+        }
+        getJoke();
+    </script>
+</html>
